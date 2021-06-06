@@ -5,9 +5,9 @@ module.exports = {
   async store(req, res) {
     try {
       const { firstName, lastName, password, email } = req.body;
-      console.log(req.body);
+      
       const existenUser = await User.findOne({ email });
-      console.log(existenUser);
+
       if (!existenUser) {
         const hashPasword = await bcrypt.hash(password, 10);
         const user = await User.create({
