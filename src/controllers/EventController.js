@@ -5,10 +5,10 @@ const User = require('../models/User.js');
 module.export = {
     async createEvent (req, res) {
         const {title, description, price } = req.body;        
-        const { userId } = req.headers;
+        const { user_id } = req.headers;
         const { filename } = req.file,
         
-        const user = await User.findById(userId);
+        const user = await User.findById(user_id);
 
         if(!user) {
             return res.status(404).json({ message: 'user is not exist' });
@@ -17,8 +17,8 @@ module.export = {
         const event = Event.create({
             title,
             description,
-            price,
-            user: userId,
+            price: parseFloat(price),
+            user: user_id,
             thumbnail: filename,
         })
 
