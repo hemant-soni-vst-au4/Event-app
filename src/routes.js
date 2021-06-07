@@ -4,11 +4,12 @@ const UserController = require('./controllers/UserController');
 
 
 
-routes.get('/', (req, res) => {
-    res.send('Hello everyone');
+routes.get('/status', (req, res) => {
+    res.send({ status: 200 });
 })
 
 
-routes.post('/register', UserController.store);
+routes.post('/user/register', UserController.createUser);
+routes.get('/user/:userId', UserController.getUserById)
 
 module.exports = routes;
