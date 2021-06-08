@@ -12,8 +12,11 @@ routes.get('/status', (req, res) => {
     res.send({ status: 200 });
 })
 
+//Event
 routes.get('/event/:eventId', EventController.getEventById)
-routes.post('/event', upload.single("thumbnail"), EventController.createEvent)
+routes.post('/event', upload.single("thumbnail"), EventController.createEvent);
+
+//User
 routes.post('/user/register', UserController.createUser);
 routes.get('/user/:userId', UserController.getUserById)
 
