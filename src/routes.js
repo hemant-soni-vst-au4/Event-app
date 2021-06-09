@@ -4,6 +4,7 @@ const multer = require('multer');
 const UserController = require('./controllers/UserController');
 const EventController = require('./controllers/EventController');
 const DashboardController = require('./controllers/DashboardController');
+const LoginController = require('./controllers/LoginController');
 
 const routes = express.Router();
 const uploadConfig =require('./config/upload')
