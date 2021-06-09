@@ -3,6 +3,7 @@ const multer = require('multer');
 
 const UserController = require('./controllers/UserController');
 const EventController = require('./controllers/EventController');
+const DashboardController = require('./controllers/DashboardController');
 
 const routes = express.Router();
 const uploadConfig =require('./config/upload')
@@ -12,12 +13,13 @@ routes.get('/status', (req, res) => {
     res.send({ status: 200 });
 })
 
-//Event
-routes.get('/events/:sport', EventController.getAllSportsEvents);
-routes.delete('/event/:eventId', EventController.delete);
-routes.get('/events', EventController.getAllEvents);
+//dashboard
+routes.get('/dashboard', DashboardController.getAllEvents);
+routes.get('/events/:sport', DashboardController.getAllSportsEvents);
+routes.get('/dashboard/:eventId', DashboardController.getEventById);
 
-routes.get('/event/:eventId', EventController.getEventById);
+//Event
+routes.delete('/event/:eventId', EventController.delete);
 routes.post('/event', upload.single("thumbnail"), EventController.createEvent);
 
 //User
