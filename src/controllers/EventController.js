@@ -40,7 +40,6 @@ module.exports = {
   },
 
   async getAllEvents(req, res) {
-    
     try {
       const events = await Event.find({});
 
@@ -63,6 +62,18 @@ module.exports = {
       }
     } catch (error) {
       return res.status(404).json({ message: "We don't have any Event yet" });
+    }
+  },
+
+  async delete(req, res) {
+    const { eventId } = req.params;
+    try {
+      await Event.findByIdAndDelete(eventId);
+      return res.status(204);
+    } catch (error) {
+      return res
+        .status(404)
+        .json({ message: "We don't have any Event with this id" });
     }
   },
 };

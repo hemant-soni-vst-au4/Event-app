@@ -13,9 +13,11 @@ routes.get('/status', (req, res) => {
 })
 
 //Event
-routes.get('/events/:sport', EventController.getAllSportsEvents)
-routes.get('/events', EventController.getAllEvents)
-routes.get('/event/:eventId', EventController.getEventById)
+routes.get('/events/:sport', EventController.getAllSportsEvents);
+routes.delete('/event/:eventId', EventController.delete);
+routes.get('/events', EventController.getAllEvents);
+
+routes.get('/event/:eventId', EventController.getEventById);
 routes.post('/event', upload.single("thumbnail"), EventController.createEvent);
 
 //User
