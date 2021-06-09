@@ -15,7 +15,7 @@ routes.get('/status', (req, res) => {
 })
 
 //LoginController
-
+routes.post('/login', LoginController.store)
 //ApprovalController
 //RejectionsController
 //SubscriberController
