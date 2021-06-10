@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const RegitrationSchema = new mongoose.Schema({
+const RegistrationSchema = new mongoose.Schema({
     date: String,
     approved: Boolean,
     sport: String,
@@ -14,4 +14,4 @@ const RegitrationSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Registration", RegitrationSchema );
+module.exports = mongoose.model("Registration", RegistrationSchema );

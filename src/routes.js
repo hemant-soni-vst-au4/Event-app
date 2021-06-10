@@ -19,7 +19,9 @@ routes.post('/login', LoginController.store)
 //ApprovalController
 //RejectionsController
 //SubscriberController
+//Registration
 
+routes.post('/register/:eventId',)
 
 //dashboard
 routes.get('/dashboard', DashboardController.getAllEvents);
