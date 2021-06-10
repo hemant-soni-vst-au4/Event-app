@@ -22,7 +22,8 @@ routes.post('/login', LoginController.store)
 //SubscriberController
 
 //Registration
-routes.post('/register/:eventId', RegistrationController.create )
+routes.post('/registration/:eventId', RegistrationController.create );
+routes.post('/registration/:registration_id', RegistrationController.getRegistration )
 
 //dashboard
 routes.get('/dashboard', DashboardController.getAllEvents);
