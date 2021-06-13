@@ -1,14 +1,17 @@
 import './App.css';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import React from 'react';
+import { Container } from 'reactstrap'
+
 
 function App() {
   return (
-    <div>
+    <Container>
     <h1>Hello Hemant</h1>
     <Login />
     <Dashboard />
-    </div>
+    </Container>
   );
 }
 
