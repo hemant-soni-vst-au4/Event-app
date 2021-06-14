@@ -7,7 +7,7 @@ const DashboardController = require("./controllers/DashboardController");
 const LoginController = require("./controllers/LoginController");
 const RegistrationController = require("./controllers/RegistrationController");
 const ApprovalController = require("./controllers/ApprovalController");
-const RejectionsController = require("./controllers/RejectionsController");
+// const RejectionController = require("./controller/RejectionController");
 
 const routes = express.Router();
 const uploadConfig = require("./config/upload");

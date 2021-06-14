@@ -1,10 +1,23 @@
-import React from "react";
-//import api from "../../services/api";
+import React, { useState } from "react";
+import api from "../../services/api";
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default function Login() {
+   const [ email, setEmail ] = useState("");
+   const [ password, setPassword ] = useState("");
 
-    
+   const handleSubmit = async event =>{
+       event.preventDefault();
+       console.log("changes are", email, password);
+
+      const respone = await api.post('/login', {email, password});
+
+      const userId = respone.data._id || false;
+      if(userId) {
+          localStorage.setItem('user', userId);
+      }
+    }
+
   return (
     <Form>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -12,7 +25,7 @@ export default function Login() {
           type="email"
           name="email"
           id="email"
-          placeholder="Your email address"
+          placeholder="Your email address" onChange={evt => setEmail(evt.target.value)}
         />
       </FormGroup>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -21,7 +34,7 @@ export default function Login() {
           type="password"
           name="password"
           id="password"
-          placeholder="Enter the Password"
+          placeholder="Enter the Password" onChange={evt => setPassword(evt.target.value)}
         />
       </FormGroup>
       <Button>Submit</Button>
