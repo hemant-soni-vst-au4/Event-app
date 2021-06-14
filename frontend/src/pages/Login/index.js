@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import api from "../../services/api";
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
-export default function Login() {
+export default function Login({history}) {
    const [ email, setEmail ] = useState("");
    const [ password, setPassword ] = useState("");
 
@@ -15,6 +15,10 @@ export default function Login() {
       const userId = respone.data._id || false;
       if(userId) {
           localStorage.setItem('user', userId);
+          history.push('/dshboard')
+      } else {
+          const {message} = respone.data;
+          console.log(message)
       }
     }
 
@@ -37,7 +41,7 @@ export default function Login() {
           placeholder="Enter the Password" onChange={evt => setPassword(evt.target.value)}
         />
       </FormGroup>
-      <Button>Submit</Button>
+      <Button onClick={(e) => handleSubmit(e)}>Submit</Button>
     </Form>
   );
 }
