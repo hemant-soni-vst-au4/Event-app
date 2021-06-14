@@ -1,29 +1,27 @@
 import React from "react";
-import api from "../../services/api";
+//import api from "../../services/api";
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 export default function Login() {
+
+    
   return (
     <Form>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-        <Label for="exampleEmail" className="mr-sm-2">
-          Email
-        </Label>
         <Input
           type="email"
           name="email"
-          id="exampleEmail"
-          placeholder="something@idk.cool"
+          id="email"
+          placeholder="Your email address"
         />
       </FormGroup>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-        <Label for="examplePassword" className="mr-sm-2">
-          Password
-        </Label>
+        
         <Input
           type="password"
           name="password"
-          id="examplePassword"
-          placeholder="don't tell!"
+          id="password"
+          placeholder="Enter the Password"
         />
       </FormGroup>
       <Button>Submit</Button>
