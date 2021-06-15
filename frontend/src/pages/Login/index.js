@@ -15,7 +15,7 @@ export default function Login({history}) {
       const userId = respone.data._id || false;
       if(userId) {
           localStorage.setItem('user', userId);
-          history.push('/dshboard')
+          history.push('/dashboard')
       } else {
           const {message} = respone.data;
           console.log(message)
