@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../../services/api";
-import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Container } from 'reactstrap';
 
 export default function Login({history}) {
    const [ email, setEmail ] = useState("");
@@ -23,7 +23,9 @@ export default function Login({history}) {
     }
 
   return (
-    <Form>
+    <Container>
+      <h2>Please login to your account</h2>
+    <Form onSubmit={handleSubmit}>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
         <Input
           type="email"
@@ -43,5 +45,6 @@ export default function Login({history}) {
       </FormGroup>
       <Button onClick={(e) => handleSubmit(e)}>Submit</Button>
     </Form>
+    </Container>
   );
 }

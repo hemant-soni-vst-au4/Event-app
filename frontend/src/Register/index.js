@@ -25,7 +25,7 @@ export default function Register({history}) {
     }
 
   return (
-    <Form>
+    <Form onsubmit={handleSubmit}>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
         <Input
           type="text"
