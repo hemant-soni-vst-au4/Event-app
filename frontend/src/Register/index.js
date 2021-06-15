@@ -12,7 +12,7 @@ export default function Register({history}) {
        event.preventDefault();
        console.log("changes are", email, password);
 
-      const respone = await api.post('/login', {email, password});
+      const respone = await api.post('/login', {email, password, firstName, lastName});
 
       const userId = respone.data._id || false;
       if(userId) {
@@ -26,6 +26,22 @@ export default function Register({history}) {
 
   return (
     <Form>
+        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+        <Input
+          type="text"
+          name="firstname"
+          id="firstname"
+          placeholder="Your first name" onChange={evt => setFirstName(evt.target.value)}
+        />
+      </FormGroup>
+      <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+        <Input
+          type="text"
+          name="lastName"
+          id="lastName"
+          placeholder="Your last Name" onChange={evt => setLastName(evt.target.value)}
+        />
+      </FormGroup>
       <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
         <Input
           type="email"
