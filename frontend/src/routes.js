@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter , Route, Switch } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import Register from './pages/Register';
 
 export default function Routes() {
     return (
@@ -9,6 +10,7 @@ export default function Routes() {
         <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/register" exact component={Register} />
         </Switch>
         </BrowserRouter>
     )
