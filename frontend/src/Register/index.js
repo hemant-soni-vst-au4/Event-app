@@ -3,6 +3,10 @@ import api from "../../services/api";
 import { Button, Form, FormGroup, Input, Container } from "reactstrap";
 
 export default function Register({ history }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
