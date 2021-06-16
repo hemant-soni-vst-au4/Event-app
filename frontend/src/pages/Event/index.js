@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const Event = () => {
+export default function Event() {
     return (
         <div>
             Hello from Event
         </div>
     )
 }
+
