@@ -32,7 +32,7 @@ export default function Register({ history }) {
   return (
     <Container>
       <h2>Please Register your account</h2>
-      <Form onsubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
           <Input
             type="text"
