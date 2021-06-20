@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import api from '../../services/api';
 import { Button, Form, FormGroup, Input, Label, Container } from "reactstrap";
+import cameraIcon from '../../assets/camera.png'
+import "./events.css";
 
 export default function Event() {
-    const user_id = localStorage.getItem('user');
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -13,7 +14,11 @@ export default function Event() {
     const [date, setDate] = useState('');
     
     console.log(title, description,thumbnail, price,sport, date);
-    
+
+    const preview = useMemo(() => {
+        return thumbnail ? URL.createObjectURL(thumbnail) : null;
+    }, [thumbnail])
+
     const submitHandler = async (evt) => {
         evt.preventDefault()
         const user_id = localStorage.getItem('user');
