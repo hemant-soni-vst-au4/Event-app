@@ -13,8 +13,6 @@ export default function Event() {
     const [thumbnail, setThumbnail] = useState('');
     const [date, setDate] = useState('');
     const [errorMessage, setErrorMessage] = useState(false)
-    
-    console.log(title, description,thumbnail, price,sport, date);
 
     const preview = useMemo(() => {
         return thumbnail ? URL.createObjectURL(thumbnail) : null;
@@ -42,21 +40,15 @@ export default function Event() {
                 date !== "" &&
                 thumbnail !== null
             ) {
-                console.log("Event has been sent")
                 await api.post("/event", eventData, { headers: { user_id } })
-                console.log(eventData)
-                console.log("Event has been saved")
             } else {
                 setErrorMessage(true)
                 setTimeout(() => {
                     setErrorMessage(false)
                 }, 2000)
-
-                console.log("Missing required data")
             }
         } catch (error) {
             Promise.reject(error);
-            console.log(error);
         }
     }
 
