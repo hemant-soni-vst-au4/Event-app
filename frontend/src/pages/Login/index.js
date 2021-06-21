@@ -7,7 +7,7 @@ export default function Login({ history }) {
   const [password, setPassword] = useState("")
   const [error, setError] = useState(false)
   const [errorMessage, setErrorMessage] = useState("false")
-
+  console.log(errorMessage)
   const handleSubmit = async evt => {
       evt.preventDefault();
       const response = await api.post('/login', { email, password })
