@@ -1,9 +1,12 @@
 import React from 'react'
 
-export default function Dashboard() {
-    return (
+export default function Dashboard(){
+    const user_id = localStorage.getItem('user');
+
+    console.log(user_id)
+    return(
         <div>
-            this is dashboard
+            Hello from Dashboard
         </div>
     )
 }
