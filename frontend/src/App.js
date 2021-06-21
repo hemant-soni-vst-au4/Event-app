@@ -7,7 +7,9 @@ function App() {
   return (
     <Container>
     <h1>Hello Hemant</h1>
+    <div className="content">
     <Routes />
+    </div>
     </Container>
   );
 }

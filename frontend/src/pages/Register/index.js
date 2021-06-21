@@ -69,7 +69,12 @@ export default function Register({ history }) {
             onChange={(evt) => setPassword(evt.target.value)}
           />
         </FormGroup>
-        <Button onClick={(e) => handleSubmit(e)}>Submit</Button>
+        <FormGroup>
+          <Button onClick={(e) => handleSubmit(e)}>Submit</Button>
+        </FormGroup>
+        <FormGroup>
+          <Button onClick={() => history.push("/login")}>Login</Button>
+        </FormGroup>
       </Form>
     </Container>
   );

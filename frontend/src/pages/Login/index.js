@@ -59,6 +59,9 @@ export default function Login({history}) {
       <FormGroup>
       <Button onClick={(e) => handleSubmit(e)}>Submit</Button>
       </FormGroup>
+      <FormGroup>
+      <Button onClick={() => history.push("/register")}>New Account</Button>
+      </FormGroup>
     </Form>
     {error ? (
                 <Alert className="event-validation" color="danger"> Missing required information</Alert>
