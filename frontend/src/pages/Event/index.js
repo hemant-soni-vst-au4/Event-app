@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import api from '../../services/api';
-import { Button, Form, FormGroup, Input, Label, Container } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label, Container, Alert } from "reactstrap";
 import cameraIcon from '../../assets/camera.png'
 import "./events.css";
 
@@ -12,6 +12,7 @@ export default function Event() {
     const [sport, setSport] = useState('');
     const [thumbnail, setThumbnail] = useState('');
     const [date, setDate] = useState('');
+    const [errorMessage, setErrorMessage] = useState(false)
     
     console.log(title, description,thumbnail, price,sport, date);
 
@@ -68,7 +69,7 @@ export default function Event() {
                     <Label>Upload Image: </Label>
                     <Label id='thumbnail' style={{ backgroundImage: `url(${preview})` }} className={thumbnail ? 'has-thumbnail' : ''}>
                         <Input type="file" onChange={evt => setThumbnail(evt.target.files[0])} />
-                        <img src={cameraIcon} style={{ maxWidth: "50px" }} alt="upload icon image" />
+                        <img src={cameraIcon} style={{ maxWidth: "50px" }} alt="uploaded"/>
                     </Label>
                 </FormGroup>
                 <FormGroup>
