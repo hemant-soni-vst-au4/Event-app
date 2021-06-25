@@ -7,6 +7,13 @@ const routes = require('./routes');
 
 const PORT = process.env.PORT || 8000;
 
+//Add token to project
+// Return token when login
+//send token on request
+//create function to protect routers
+// modify request to decode the tokens
+
+
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
