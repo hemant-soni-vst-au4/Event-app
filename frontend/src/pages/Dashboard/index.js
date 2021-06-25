@@ -20,19 +20,20 @@ export default function Dashboard(){
         setEvents(response.data);
     }
     return(
-        <ul className="events-list">
-
-            {events.map(event =>(
-                <li key={event._id}>
-                  <header style={{ backgroundImage: `url(${event.thumbnail_url})` }} />
-                  <strong>{event.title}</strong>
-                  <span>Event Date:-{moment(event.date).format('l')}</span>
-                  <span>Event Price:-{parseFloat(event.price).toFixed(2)}</span>
-                  <span>Event Description:-{event.description}</span>
-                  <Button color="primary">Subscribe</Button>
-                </li>
-            ))}
-
-        </ul>
+        <>
+        <div>Filter:</div>
+            <ul className="events-list">
+                {events.map(event =>(
+                    <li key={event._id}>
+                    <header style={{ backgroundImage: `url(${event.thumbnail_url})` }} />
+                    <strong>{event.title}</strong>
+                    <span>Event Date:-{moment(event.date).format('l')}</span>
+                    <span>Event Price:-{parseFloat(event.price).toFixed(2)}</span>
+                    <span>Event Description:-{event.description}</span>
+                    <Button color="primary">Subscribe</Button>
+                    </li>
+                ))}
+            </ul>
+        </>
     )
 }
