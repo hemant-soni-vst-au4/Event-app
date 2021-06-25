@@ -47,6 +47,7 @@ export default function EventsPage({ history }) {
                 setSuccess(true)
                 setTimeout(() => {
                     setSuccess(false)
+                    history.push("/")
                 }, 2000)
             } else {
                 setError(true)
@@ -72,7 +73,7 @@ export default function EventsPage({ history }) {
                         <Label>Upload Image: </Label>
                         <Label id='thumbnail' style={{ backgroundImage: `url(${preview})` }} className={thumbnail ? 'has-thumbnail' : ''}>
                             <Input type="file" onChange={evt => setThumbnail(evt.target.files[0])} />
-                            <img src={cameraIcon} style={{ maxWidth: "50px" }} alt="uploaded" />
+                            <img src={cameraIcon} style={{ maxWidth: "50px" }} alt="upload icon image" />
                         </Label>
                     </FormGroup>
                     <FormGroup>
@@ -108,7 +109,7 @@ export default function EventsPage({ history }) {
                 </FormGroup>
                 <FormGroup>
                     <Button className="secondary-btn" onClick={() => history.push("/")}>
-                        Dashboard
+                        Cancel
                     </Button>
                 </FormGroup>
             </Form>
