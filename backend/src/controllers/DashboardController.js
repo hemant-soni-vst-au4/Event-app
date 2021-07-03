@@ -1,4 +1,5 @@
 const Event = require("../models/Event.js");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
     async getEventById(req, res) {
@@ -15,16 +16,23 @@ module.exports = {
         }
       },
     
-      async getAllEvents(req, res) {
-        try {
-          const events = await Event.find({});
-    
-          if (events) {
-            return res.json(events);
+      getAllEvents(req, res) {
+        jwt.verify(req.token, 'secret', async(err, authData) => {
+          if(err) {
+            res.sendStatus(403)
+          } else {
+            try {
+              const events = await Event.find({});
+        
+              if (events) {
+                return res.json(authData, events);
+              }
+            } catch (error) {
+              return res.status(404).json({ message: "We don't have any Event yet" });
+            }
           }
-        } catch (error) {
-          return res.status(404).json({ message: "We don't have any Event yet" });
-        }
+        })
+        
       },
     
       async getAllSportsEvents(req, res) {
