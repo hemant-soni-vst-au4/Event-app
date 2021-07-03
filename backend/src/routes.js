@@ -48,8 +48,8 @@ routes.get("/dashboard/:eventId", verifyToken, DashboardController.getEventById)
 routes.get("/user/events", verifyToken, DashboardController.getEventsByUserId);
 
 //Event
-routes.delete("/event/:eventId", EventController.delete);
-routes.post("/event", upload.single("thumbnail"), EventController.createEvent);
+routes.delete("/event/:eventId",verifyToken, EventController.delete);
+routes.post("/event",verifyToken, upload.single("thumbnail"), EventController.createEvent);
 
 //User
 routes.post("/user/register", UserController.createUser);
