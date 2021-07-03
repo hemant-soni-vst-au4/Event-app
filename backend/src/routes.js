@@ -42,9 +42,10 @@ routes.post(
   RejectionController.rejection
 );
 //dashboard
-routes.get("/dashboard", DashboardController.getAllEvents);
-routes.get("/events/:sport", DashboardController.getAllSportsEvents);
-routes.get("/dashboard/:eventId", DashboardController.getEventById);
+routes.get("/dashboard", verifyToken, DashboardController.getAllEvents);
+routes.get("/events/:sport", verifyToken, DashboardController.getAllSportsEvents);
+routes.get("/dashboard/:eventId", verifyToken, DashboardController.getEventById);
+routes.get("/user/events", verifyToken, DashboardController.getEventsByUserId);
 
 //Event
 routes.delete("/event/:eventId", EventController.delete);
