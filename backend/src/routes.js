@@ -1,6 +1,8 @@
 const express = require("express");
 const multer = require("multer");
 
+const verifyToken = require('./config/verifyToken')
+
 const UserController = require("./controllers/UserController");
 const EventController = require("./controllers/EventController");
 const DashboardController = require("./controllers/DashboardController");
